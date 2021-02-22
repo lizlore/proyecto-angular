@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { routing, appRoutingProviders } from './app.routing';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +21,7 @@ import { ErrorComponent } from './components/error/error.component';
     ContactComponent,
     ErrorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, routing],
+  imports: [BrowserModule, AppRoutingModule, routing, HttpClientModule, FormsModule],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent],
 })
