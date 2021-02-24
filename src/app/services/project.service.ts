@@ -13,4 +13,11 @@ export class ProjectService {
   testService() {
     return 'Probando el servicio';
   }
+
+  saveProject(project: Project) {
+    // let params: JSON["stringify"];
+    // let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    // return this._http.post(this.url + 'save-project', params, {headers: 'headers'})
+    return this._http.post(this.url + 'save-project', project);
+  }
 }
