@@ -21,7 +21,7 @@ export class UploadtService {
       let formData: any = new FormData();
       let xhr = new XMLHttpRequest();
 
-      for (let i = 0; i < FileList.length; i++) {
+      for (let i = 0; i < files.length; i++) {
         formData.append(name, files[i], files[i].name);
       }
       xhr.onreadystatechange = function () {

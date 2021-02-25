@@ -11,39 +11,46 @@ import { Global } from './../../services/global';
 })
 export class CreateComponent implements OnInit {
   public title: string;
-  public projec: Project;
+  public project: Project;
   public status: string;
   public filesToUpload: any;
+  public save_project;
 
   constructor(
     private projectService: ProjectService,
     private uploadService: UploadtService
   ) {
     this.title = 'Crear proyecto';
-    this.projec = new Project('', '', '', '', 2021, '', '');
+    this.project = new Project('', '', '', '', 2021, '', '');
   }
 
   ngOnInit(): void {}
 
   onSubmit(form) {
-    console.log(this.projec);
-    this.projectService.saveProject(this.projec).subscribe(
+    // Guardar datos básicos
+    this.projectService.saveProject(this.project).subscribe(
       (response) => {
-        console.log('response: ', response);
-        if (response) {
-          this.status = 'success';
-          // Subir imagen
-          this.uploadService
-            .makeFileRequest(
-              Global.url + 'upload-image/' + response.project._id,
-              [],
-              this.filesToUpload,
-              'image'
-            )
-            .then((result: any) => {
-              console.log(result);
-              form.reset();
-            });
+        if (response['project']) {
+          // Subir la imagen
+          if (this.filesToUpload) {
+            this.uploadService
+              .makeFileRequest(
+                Global.url + 'upload-image/' + response['project']['_id'],
+                [],
+                this.filesToUpload,
+                'image'
+              )
+              .then((result: any) => {
+                this.save_project = result.project;
+
+                this.status = 'success';
+                form.reset();
+              });
+          } else {
+            this.save_project = response['project'];
+            this.status = 'success';
+            form.reset();
+          }
         } else {
           this.status = 'failed';
         }
@@ -57,4 +64,43 @@ export class CreateComponent implements OnInit {
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>>fileInput.target.files;
   }
+
+  // onSubmit(form) {
+  //   console.log(this.project);
+  //   this.projectService.saveProject(this.project).subscribe(
+  //     (response) => {
+  //       console.log('response: ', response);
+  //       if (response['project']) {
+  //         const id = response['project']['_id'];
+  //         console.log('id: ', id);
+
+  //         // Subir imagen
+  //         if (this.filesToUpload) {
+  //           this.uploadService
+  //             .makeFileRequest(
+  //               Global.url + 'upload-image/' + id,
+  //               [],
+  //               this.filesToUpload,
+  //               'image'
+  //             )
+  //             .then((result: any) => {
+  //               this.save_project = result.project;
+  //               this.status = 'success';
+  //               console.log(result);
+  //               form.reset();
+  //             });
+  //         } else {
+  //           this.save_project = response['project'];
+  //           this.status = 'success';
+
+  //         }
+  //       } else {
+  //         this.status = 'failed';
+  //       }
+  //     },
+  //     (error) => {
+  //       console.log(<any>error);
+  //     }
+  //   );
+  // }
 }
