@@ -1,3 +1,3 @@
 export const Global = {
-  url: 'http://localhost:3700/api/',
+  url: 'http://18.222.60.74:3700/api/',
 };

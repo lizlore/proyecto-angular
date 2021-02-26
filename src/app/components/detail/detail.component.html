@@ -1,11 +1,11 @@
 <div class="container" *ngIf="project">
   <div class="image">
-    <img src="{{ url + 'get-image/' + project.image }}" *ngIf="project.image" />
+    <img src="{{ url + 'get-image/' + project.image }}" *ngIf="project.image" style="width: 50%;" />
   </div>
   <div class="data">
     <h1>{{ project.name }}</h1>
     <h3>
-      {{ project.name }}
+      {{ project.description }}
     </h3>
     <p>
       {{ project.category }}
