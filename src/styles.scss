@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "signika-regular";
+  src: url("./assets/fonts/S-Regular.ttf");
+}
+
+@font-face {
+  font-family: "signika-bold";
+  src: url("./assets/fonts/S-Bold.ttf");
+}
+
+/* Estilos generales */
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: "signika-regular";
+  font-size: 20px;
+  background-attachment: fixed;
+}
+

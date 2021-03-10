@@ -211,7 +211,7 @@ form input[type="submit"]:disabled {
 }
 
 /* Estilos para mensajes de exito o error */
--sessage {
+.message {
   padding: 5px;
   width: 50%;
   border: 1px solid #eee;
@@ -261,7 +261,7 @@ form input[type="submit"]:disabled {
 /* Detalle */
 .container .image {
   float: left;
-  width: 50%;
+  width: 30%;
 }
 
 .container .data {

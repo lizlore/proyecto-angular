@@ -6,7 +6,7 @@ import { Global } from './../../services/global';
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.sass'],
+  styleUrls: ['./create.component.scss'],
   providers: [ProjectService, UploadtService],
 })
 export class CreateComponent implements OnInit {

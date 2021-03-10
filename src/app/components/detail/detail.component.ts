@@ -7,7 +7,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.sass'],
+  styleUrls: ['./detail.component.scss'],
   providers: [ProjectService],
 })
 export class DetailComponent implements OnInit {

@@ -1,0 +1,26 @@
+/* Pagina de proyectos */
+.project {
+  list-style: none;
+  display: block;
+  float: left;
+  width: 28%;
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+.project .image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.project img {
+  width: 100%;
+}
+
+.project a {
+  text-decoration: none;
+  color: black;
+}
